@@ -19,7 +19,10 @@ class Msg(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "hello lhoussaine!"}
+    driver = await  createDriver()
+    driver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
+    print(driver.page_source)
+    return driver.page_source
 
 
 @app.get("/homepage")
