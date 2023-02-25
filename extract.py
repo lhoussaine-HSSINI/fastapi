@@ -14,7 +14,7 @@ async def createDriver() -> webdriver.Chrome:
         chrome_options.headless = True
 
         chrome_options.add_experimental_option("prefs", prefs)
-        myDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+        myDriver =webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         # chrome_options = webdriver.ChromeOptions()
         # # chrome_options.add_argument("--headless")
         # chrome_options.add_argument("--no-sandbox")
