@@ -1,4 +1,5 @@
 from fastapi import FastAPI, BackgroundTasks, HTTPException
+from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from extract import *
 from datetime import datetime
@@ -23,9 +24,10 @@ async def root():
 
 @app.get("/homepage")
 async def demo_get():
-    driver = createDriver()
-    homepage = get_page_source(driver)
-    driver.close()
+    driver =await createDriver()
+    homepage = get_page_source(await driver)
+    # driver.close()
+    driver.quit()
     print(homepage)
     return homepage
 
