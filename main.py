@@ -37,7 +37,6 @@ async def do_something():
     global i
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    driver = await  createDriver()
-    driver.close()
+    driver =await createDriver()
     print(f"faho N = {i} >>>>>>>>>>>>>>>>>>> : {current_time}")
     i+=1
