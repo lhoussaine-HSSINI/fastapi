@@ -25,7 +25,8 @@ async def root():
 async def demo_get():
     driver = createDriver()
     homepage = get_page_source(driver)
-    driver.close()
+    # driver.close()
+    driver.quit()
     return homepage
 
 
