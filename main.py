@@ -25,7 +25,7 @@ async def root():
 @app.get("/homepage")
 async def demo_get():
     driver =await createDriver()
-    homepage = get_page_source(await driver)
+    homepage = await get_page_source(driver)
     # driver.close()
     driver.quit()
     print(homepage)
