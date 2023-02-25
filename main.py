@@ -41,5 +41,7 @@ async def do_something():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     driver =await createDriver()
+    homepage = await get_page_source(driver)
+    print(homepage)
     print(f"faho N = {i} >>>>>>>>>>>>>>>>>>> : {current_time}")
     i+=1
