@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 async def createDriver() -> webdriver.Chrome:
-        chrome_options = webdriver.ChromeOptions()
+        chrome_options =webdriver.ChromeOptions()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
@@ -45,5 +45,5 @@ async def createDriver() -> webdriver.Chrome:
 
 async def get_page_source(driver: webdriver.Chrome) -> str:
         driver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
-        return driver.page_source
+        return  driver.page_source
 
