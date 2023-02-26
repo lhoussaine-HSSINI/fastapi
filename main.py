@@ -24,18 +24,6 @@ list_company_name = []
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    # driver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
-    # print(driver.page_source)
-    return list_link_job
-
-
-@app.get("/title")
-async def demo_get():
-    return list_title_jobs
-
-
 i=1
 @app.on_event("startup")
 @repeat_every(seconds=60*60)  # 1 hour
@@ -91,3 +79,17 @@ async def do_something() -> Awaitable[str]:
         list_company_name.append(company_name)
     myDriver.close()
     i+=1
+
+
+@app.get("/")
+async def root():
+    # driver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
+    # print(driver.page_source)
+    return list_link_job
+
+
+@app.get("/title")
+async def demo_get():
+    return list_title_jobs
+
+
