@@ -27,7 +27,7 @@ app = FastAPI()
 i=1
 @app.on_event("startup")
 @repeat_every(seconds=60*60)  # 1 hour
-async def do_something() -> Awaitable[str]:
+async def do_something():
     global i
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
