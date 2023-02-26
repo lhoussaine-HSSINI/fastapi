@@ -31,22 +31,21 @@ async def root():
     return list_link_job
 
 
-# @app.get("/homepage")
-# async def demo_get():
-#     driver =createDriver()
-#     driver.close()
+@app.get("/title")
+async def demo_get():
+    return list_title_jobs
 
 
 i=1
 @app.on_event("startup")
-@repeat_every(seconds=60)  # 1 hour
+@repeat_every(seconds=60*60)  # 1 hour
 async def do_something() -> Awaitable[str]:
     global i
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     print(f"faho N = {i} >>>>>>>>>>>>>>>>>>> : {current_time}")
     chrome_options = webdriver.ChromeOptions()
-    # # chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
     # prefs = {"profile.managed_default_content_settings.images": 2}
