@@ -15,7 +15,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 import os
 
-# SECRET = os.getenv("SECRET")
+SECRET = os.getenv("SECRET")
 list_link_job = []
 list_title_jobs = []
 list_company_location = []
@@ -54,7 +54,7 @@ async def do_something():
     chrome_options.add_argument('user-agent={0}'.format(user_agent))
     # myDriver = webdriver.Chrome(service=ChromeService(executable_path="D:\\chromedriver\\chromedriver.exe"),
     #                             options=chrome_options)
-    myDriver = webdriver.Chrome(options=chrome_options)
+    myDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options)
     myDriver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
     resulta =myDriver.page_source
     soup = BeautifulSoup(resulta, "lxml")
