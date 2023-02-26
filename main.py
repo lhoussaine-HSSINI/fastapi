@@ -64,9 +64,9 @@ async def do_something() -> Awaitable[str]:
     chrome_options.add_argument('--disable-blink-features=AutomationControlled')
     user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36'
     chrome_options.add_argument('user-agent={0}'.format(user_agent))
-    myDriver = webdriver.Chrome(service=ChromeService(executable_path="D:\\chromedriver\\chromedriver.exe"),
-                                options=chrome_options)
-    # # myDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    # myDriver = webdriver.Chrome(service=ChromeService(executable_path="D:\\chromedriver\\chromedriver.exe"),
+    #                             options=chrome_options)
+    myDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     myDriver.get("https://ma.indeed.com/jobs?q=stage+web&fromage=1")
     resulta =myDriver.page_source
     soup = BeautifulSoup(resulta, "lxml")
